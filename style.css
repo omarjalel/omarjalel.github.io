@@ -373,13 +373,4 @@ body.dark #contact i {
     transform: scale(1.05);
     box-shadow: 0 8px 15px rgba(0,0,0,0.3);
 }
-.profile-photo {
-    width: 100%;       /* make it fill its container */
-    max-width: 300px;  /* optional: limits max size */
-    height: auto;      /* keeps aspect ratio */
-    object-fit: contain; /* ensures the whole image fits without cropping */
-    border-radius: 10px; /* optional: rounded corners */
-    display: block;    /* removes inline spacing issues */
-    margin: 0 auto;    /* centers the image */
-}
 
