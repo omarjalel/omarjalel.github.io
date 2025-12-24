@@ -59,42 +59,43 @@ particlesJS('particles-js', {
 });
 
 // =====================
-// Animate skill bars when section visible
+// Animate skill and language bars
 // =====================
 const skills = document.querySelectorAll('.skill-fill');
 const skillsSection = document.getElementById('skills');
+const langs = document.querySelectorAll('.lang-bar span');
+const langsSection = document.getElementById('languages');
 
-// =====================
-// Animate language bars when section visible
-// =====================
-const langBars = document.querySelectorAll('.lang-bar span');
-const languagesSection = document.getElementById('languages');
-
-function fillSkills() {
+function fillBars() {
   skills.forEach(skill => {
     skill.style.width = skill.getAttribute('data-width');
   });
-}
-
-function fillLangBars() {
-  langBars.forEach(bar => {
-    bar.style.width = bar.getAttribute('data-level');
+  langs.forEach(lang => {
+    lang.style.width = lang.getAttribute('data-level');
   });
 }
 
 window.addEventListener('scroll', () => {
   const skillsPos = skillsSection.getBoundingClientRect().top;
-  const langPos = languagesSection.getBoundingClientRect().top;
+  const langsPos = langsSection.getBoundingClientRect().top;
   const screenPos = window.innerHeight / 1.3;
-
-  if(skillsPos < screenPos) fillSkills();
-  if(langPos < screenPos) fillLangBars();
+  if(skillsPos < screenPos || langsPos < screenPos) fillBars();
 });
 
 // =====================
-// Initialize AOS library
+// Initialize AOS
 // =====================
 AOS.init({
   duration: 1000,
   once: true
+});
+
+// =====================
+// Hamburger toggle
+// =====================
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('nav ul');
+
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
 });
