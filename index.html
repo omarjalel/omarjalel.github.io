@@ -4,13 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Omar Jalel | Industrial Automation & IIoT Engineer</title>
+
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
 <nav>
   <div class="logo">Omar Jalel</div>
-
   <ul>
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
@@ -18,21 +22,22 @@
     <li><a href="#skills">Skills</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-
   <button id="theme-toggle" class="theme-toggle">🌙</button>
 </nav>
 
-
 <header class="hero">
-  <h1>Industrial Automation & IIoT Engineer</h1>
-  <p>Siemens PLC | TIA Portal | WinCC | Industry 4.0</p>
-  <div class="cta">
-    <a href="CV-OmarJalel-EUROPASS-EN.pdf" class="btn">Download CV</a>
-    <a href="#projects" class="btn outline">View Projects</a>
+  <div id="particles-js"></div>
+  <div class="hero-content">
+    <h1><span id="typed"></span></h1>
+    <p>Siemens PLC | TIA Portal | WinCC | Industry 4.0</p>
+    <div class="cta">
+      <a href="CV-OmarJalel-EUROPASS-EN.pdf" class="btn">Download CV</a>
+      <a href="#projects" class="btn outline">View Projects</a>
+    </div>
   </div>
 </header>
 
-<section id="about">
+<section id="about" data-aos="fade-up">
   <h2>About Me</h2>
   <p>
     Industrial Automation Engineer currently working at Methode Electronics in Malta.
@@ -42,9 +47,9 @@
 </section>
 
 <section id="experience">
-  <h2>Experience</h2>
+  <h2 data-aos="fade-up">Experience</h2>
 
-  <div class="card">
+  <div class="card" data-aos="fade-up" data-aos-delay="100">
     <h3>Methode Electronics – Malta</h3>
     <span>Industrial Automation Engineer (2024 – Present)</span>
     <ul>
@@ -55,7 +60,7 @@
     </ul>
   </div>
 
-  <div class="card">
+  <div class="card" data-aos="fade-up" data-aos-delay="200">
     <h3>Discovery Informatique SA – Tunisia</h3>
     <span>Industrial Integration Consultant (2022 – 2024)</span>
     <ul>
@@ -68,9 +73,9 @@
 </section>
 
 <section id="projects">
-  <h2>Projects</h2>
+  <h2 data-aos="fade-up">Projects</h2>
 
-  <div class="card">
+  <div class="card" data-aos="fade-up" data-aos-delay="100">
     <h3>BMW Automotive Production Line</h3>
     <p>
       Programming and commissioning of multi-station machines and turntables
@@ -79,7 +84,7 @@
     <span>Siemens S7-1500 · TIA Portal · WinCC · PROFINET</span>
   </div>
 
-  <div class="card">
+  <div class="card" data-aos="fade-up" data-aos-delay="200">
     <h3>Vision Inspection System (Robot + PLC)</h3>
     <p>
       Development of a vision-based inspection system using a Matrox camera
@@ -88,7 +93,7 @@
     <span>Vision Systems · Robotics · Siemens PLC · PROFINET</span>
   </div>
 
-  <div class="card">
+  <div class="card" data-aos="fade-up" data-aos-delay="300">
     <h3>IIoT Industrial Gateway</h3>
     <p>
       Real-time machine data acquisition gateway designed for MES integration,
@@ -98,29 +103,33 @@
   </div>
 </section>
 
-<section id="skills">
+<section id="skills" data-aos="fade-up">
   <h2>Skills</h2>
   <div class="grid">
     <div>
       <h4>Industrial Automation</h4>
+      <div class="skill-bar"><div class="skill-fill" style="width: 90%"></div></div>
       <p>Siemens S7-300/1200/1500, TIA Portal, WinCC, Safety, Servo Drives, VFDs</p>
     </div>
     <div>
       <h4>IIoT & Communication</h4>
+      <div class="skill-bar"><div class="skill-fill" style="width: 85%"></div></div>
       <p>OPC UA, Modbus TCP/RTU, MQTT, Kafka, MES Integration</p>
     </div>
     <div>
       <h4>DevOps & Software</h4>
+      <div class="skill-bar"><div class="skill-fill" style="width: 75%"></div></div>
       <p>Docker, Linux, Git, Node-RED, SQL</p>
     </div>
     <div>
       <h4>Tools & Embedded</h4>
+      <div class="skill-bar"><div class="skill-fill" style="width: 70%"></div></div>
       <p>Factory I/O, LabVIEW, MATLAB, Raspberry Pi, Arduino</p>
     </div>
   </div>
 </section>
 
-<section id="contact">
+<section id="contact" data-aos="fade-up">
   <h2>Contact</h2>
   <p>Email: <a href="mailto:omarjalelytt@gmail.com">omarjalelytt@gmail.com</a></p>
   <p>LinkedIn: <a href="https://www.linkedin.com/in/omar-jalel/" target="_blank">linkedin.com/in/omar-jalel</a></p>
@@ -131,6 +140,12 @@
   <p>© 2025 Omar Jalel</p>
 </footer>
 
+<!-- JS Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<!-- Custom JS -->
 <script src="script.js"></script>
 </body>
 </html>
