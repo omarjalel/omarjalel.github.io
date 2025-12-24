@@ -358,3 +358,29 @@ body.dark #contact i {
         font-size: 0.7rem;
     }
 }
+
+.hero-photo {
+    width: 150px; /* adjust as needed */
+    height: 150px;
+    border-radius: 50%; /* makes it circular */
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 3px solid var(--btn-bg);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hero-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+
+.profile-photo {
+    width: 200px;          /* diameter of the circle */
+    height: 200px;         /* same as width to make it circular */
+    object-fit: contain;   /* ensures full image fits inside circle */
+    border-radius: 50%;    /* makes it circular */
+    display: block;
+    margin: 0 auto 20px;   /* centers it and adds spacing below */
+    border: 3px solid var(--btn-bg); /* optional: adds a nice border */
+    background-color: #fff; /* optional: background behind the image */
+}
