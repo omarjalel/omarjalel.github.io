@@ -375,12 +375,13 @@ body.dark #contact i {
 }
 
 .profile-photo {
-    width: 100%;          /* fills the container width */
-    max-width: 250px;     /* optional: limits size on large screens */
-    height: auto;         /* keeps aspect ratio */
-    object-fit: contain;  /* ensures the whole image fits without cropping */
-    border-radius: 75%;   /* makes it circular, optional */
+    width: 200px;          /* diameter of the circle */
+    height: 200px;         /* same as width to make it circular */
+    object-fit: contain;   /* ensures full image fits inside circle */
+    border-radius: 50%;    /* makes it circular */
     display: block;
-    margin: 0 auto 20px;  /* centers and adds spacing below */
+    margin: 0 auto 20px;   /* centers it and adds spacing below */
+    border: 3px solid var(--btn-bg); /* optional: adds a nice border */
+    background-color: #fff; /* optional: background behind the image */
 }
 
