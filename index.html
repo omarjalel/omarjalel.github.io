@@ -7,8 +7,10 @@
 
   <!-- AOS Animation Library -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
   <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -16,12 +18,13 @@
 
 <nav>
   <div class="logo">Omar Jalel</div>
+  <div class="hamburger">☰</div>
   <ul>
     <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#education">Education</a></li>
+    <li><a href="#skills">Skills</a></li>
     <li><a href="#languages">Languages</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -49,42 +52,6 @@
   </p>
 </section>
 
-<section id="skills" data-aos="fade-up">
-  <h2>Skills</h2>
-  <div class="grid">
-    <div>
-      <h4>Industrial Automation</h4>
-      <div class="skill-bar"><div class="skill-fill" data-width="90%"></div></div>
-      <p>Electrical Wiring Connection, Siemens S7-300/1200/1500, Safety, Servo Drives, VFDs, TIA Portal, WinCC, S7 PLCSIM, Beckhoff TwinCAT 3</p>
-    </div>
-    <div>
-      <h4>IIoT & Communication</h4>
-      <div class="skill-bar"><div class="skill-fill" data-width="85%"></div></div>
-      <p>OPC UA, Modbus TCP/RTU, PROFINET IO, MQTT, Apache Kafka (Streams/Connect), MES Integration</p>
-    </div>
-    <div>
-      <h4>DevOps & Software</h4>
-      <div class="skill-bar"><div class="skill-fill" data-width="75%"></div></div>
-      <p>Docker, Linux, Git, Node-RED, SQL, PostgreSQL, MySQL, Portal Azure, Cloud - Azure</p>
-    </div>
-    <div>
-      <h4>Tools & Embedded</h4>
-      <div class="skill-bar"><div class="skill-fill" data-width="60%"></div></div>
-      <p>Factory I/O, LabVIEW, MATLAB, Simulik, Fluidsim, PROTEUS, Raspberry Pi, Arduino, STM32 CubeMX</p>
-    </div>
-    <div>
-      <h4>Coding & Automation Languages</h4>
-      <div class="skill-bar"><div class="skill-fill" data-width="70%"></div></div>
-      <p>LADDER, SCL, STL, GRAPH, HTML, PHP, JAVA, C++</p>
-    </div>
-    <div>
-      <h4>Microsoft Pack</h4>
-      <div class="skill-bar"><div class="skill-fill" data-width="90%"></div></div>
-      <p>Microsoft Office, Excel, Word, PowerPoint</p>
-    </div>
-  </div>
-</section>
-
 <section id="experience" data-aos="fade-up">
   <h2>Experience</h2>
 
@@ -109,21 +76,21 @@
     <ul>
       <li>Study and demonstrate IIOT tools and technologies on behalf of several industrial clients</li>
       <li>Participate in the study of new technologies and documentation within the R&D department</li>
-      <li>Participate in the tasks of demos, studies, implementations for the implementation of an MES (part integration with machines and control units)</li>
-      <li>Identify IIOT communication points before the integration phase of an MES: Technical feasibility, choice of equipment, budget estimate, etc</li>
+      <li>Participate in the tasks of demos, studies, implementations for MES integration</li>
+      <li>Identify IIOT communication points: feasibility, equipment, budget</li>
       <li>Develop a communication gateway to monitor and collect machine variables in real time via several industrial protocols</li>
-      <li>Improve the gateway to be able to archive collected data and operate in multi-node mode</li>
+      <li>Improve the gateway to archive collected data and operate in multi-node mode</li>
     </ul>
   </div>
 
   <div class="card" data-aos="fade-up" data-aos-delay="200">
     <h3>APBS Avicenna Private Business Schools – Tunisia</h3>
-    <span>IT and Maintenance support (2021 – 2022)</span>
+    <span>IT and Maintenance Support (2021 – 2022)</span>
     <ul>
       <li>Maintain and adjust computer and electronic equipment</li>
       <li>Monitor online sessions and conferences</li>
-      <li>Participate in the wiring and installation of various equipment (cameras, touch screens ...)</li>
-      <li>Develop a solution for mixing between multiple cameras and multiple audio sources</li>
+      <li>Participate in wiring and installation of equipment (cameras, touch screens)</li>
+      <li>Develop a solution for mixing multiple cameras and audio sources</li>
     </ul>
   </div>
 </section>
@@ -146,23 +113,59 @@
   <div class="card" data-aos="fade-up" data-aos-delay="300">
     <h3>IIoT Industrial Gateway</h3>
     <p>Real-time machine data acquisition gateway designed for MES integration, supporting multi-node operation and data archiving.</p>
-    <span>OPC UA · Modbus TCP · MQTT · Apache Kafka (Streams/Connect) · Docker</span>
+    <span>OPC UA · Modbus TCP · MQTT · Apache Kafka · Docker</span>
   </div>
 </section>
 
 <section id="education" data-aos="fade-up">
   <h2>Education</h2>
 
-  <div class="card" data-aos="fade-up" data-aos-delay="100">
-    <h3>Professional Master's in Industrial Systems Control</h3>
-    <span>University of Carthage - ISSAT Mateur [ 15 Sep 2019 – 15 Jun 2021 ]</span>
-    <p>City: Bizerte | Country: Tunisia | Website: <a href="https://ucar.rnu.tn/" target="_blank">ucar.rnu.tn</a> | Level in EQF: EQF level 7</p>
+  <div class="card">
+    <h4>Professional Master's in Industrial Systems Control</h4>
+    <p>University of Carthage - ISSAT Mateur [ 15 Sep 2019 – 15 Jun 2021 ]</p>
+    <p>City: Bizerte | Country: Tunisia | <a href="https://ucar.rnu.tn/" target="_blank">Website</a> | Level: EQF 7</p>
   </div>
 
-  <div class="card" data-aos="fade-up" data-aos-delay="200">
-    <h3>Applied Degree in Automation of Industrial Systems (Bachelor's Degree)</h3>
-    <span>University of Carthage - ISSAT Mateur [ 15 Sep 2016 – 15 Jun 2019 ]</span>
-    <p>City: Bizerte | Country: Tunisia | Website: <a href="https://ucar.rnu.tn/" target="_blank">ucar.rnu.tn</a> | Level in EQF: EQF level 6</p>
+  <div class="card">
+    <h4>Applied Degree in Automation of Industrial Systems (Bachelor's)</h4>
+    <p>University of Carthage - ISSAT Mateur [ 15 Sep 2016 – 15 Jun 2019 ]</p>
+    <p>City: Bizerte | Country: Tunisia | <a href="https://ucar.rnu.tn/" target="_blank">Website</a> | Level: EQF 6</p>
+  </div>
+</section>
+
+<section id="skills" data-aos="fade-up">
+  <h2>Skills</h2>
+  <div class="grid">
+    <div>
+      <h4>Industrial Automation</h4>
+      <div class="skill-bar"><div class="skill-fill" data-width="90%"></div></div>
+      <p>Electrical Wiring, Siemens S7-300/1200/1500, Safety, Servo Drives, VFDs, TIA Portal, WinCC</p>
+    </div>
+    <div>
+      <h4>IIoT & Communication</h4>
+      <div class="skill-bar"><div class="skill-fill" data-width="85%"></div></div>
+      <p>OPC UA, Modbus TCP/RTU, PROFINET IO, MQTT, Apache Kafka, MES Integration</p>
+    </div>
+    <div>
+      <h4>DevOps & Software</h4>
+      <div class="skill-bar"><div class="skill-fill" data-width="75%"></div></div>
+      <p>Docker, Linux, Git, Node-RED, SQL, PostgreSQL, MySQL, Azure</p>
+    </div>
+    <div>
+      <h4>Tools & Embedded</h4>
+      <div class="skill-bar"><div class="skill-fill" data-width="60%"></div></div>
+      <p>Factory I/O, LabVIEW, MATLAB, Simulink, Fluidsim, PROTEUS, Raspberry Pi, Arduino, STM32 CubeMX</p>
+    </div>
+    <div>
+      <h4>Coding & Automation Languages</h4>
+      <div class="skill-bar"><div class="skill-fill" data-width="70%"></div></div>
+      <p>LADDER, SCL, STL, GRAPH, HTML, PHP, JAVA, C++</p>
+    </div>
+    <div>
+      <h4>Microsoft Pack</h4>
+      <div class="skill-bar"><div class="skill-fill" data-width="90%"></div></div>
+      <p>Microsoft Office, Excel, Word, PowerPoint</p>
+    </div>
   </div>
 </section>
 
@@ -177,19 +180,10 @@
   <div class="language-card">
     <h4>English</h4>
     <div class="lang-bar"><span data-level="90%">Listening: C1</span></div>
-    <div class="lang-bar"><span data-level="80%">Reading: B2</span></div>
-    <div class="lang-bar"><span data-level="65%">Writing: B1</span></div>
-    <div class="lang-bar"><span data-level="65%">Spoken Production: B1</span></div>
-    <div class="lang-bar"><span data-level="80%">Spoken Interaction: B2</span></div>
-  </div>
-
-    <div class="language-card">
-    <h4>French</h4>
-    <div class="lang-bar"><span data-level="80%">Listening: B2</span></div>
-    <div class="lang-bar"><span data-level="90%">Reading: C1</span></div>
-    <div class="lang-bar"><span data-level="90%">Writing: C1</span></div>
-    <div class="lang-bar"><span data-level="80%">Spoken Production: B2</span></div>
-    <div class="lang-bar"><span data-level="80%">Spoken Interaction: B2</span></div>
+    <div class="lang-bar"><span data-level="70%">Reading: B2</span></div>
+    <div class="lang-bar"><span data-level="50%">Writing: B1</span></div>
+    <div class="lang-bar"><span data-level="50%">Spoken Production: B1</span></div>
+    <div class="lang-bar"><span data-level="70%">Spoken Interaction: B2</span></div>
   </div>
 
   <div class="language-card">
@@ -201,13 +195,23 @@
     <div class="lang-bar"><span data-level="20%">Spoken Interaction: A2</span></div>
   </div>
 
+  <div class="language-card">
+    <h4>French</h4>
+    <div class="lang-bar"><span data-level="70%">Listening: B2</span></div>
+    <div class="lang-bar"><span data-level="90%">Reading: C1</span></div>
+    <div class="lang-bar"><span data-level="90%">Writing: C1</span></div>
+    <div class="lang-bar"><span data-level="70%">Spoken Production: B2</span></div>
+    <div class="lang-bar"><span data-level="70%">Spoken Interaction: B2</span></div>
+  </div>
+
+  <p><strong>Levels:</strong> A1/A2: Basic | B1/B2: Independent | C1/C2: Proficient</p>
 </section>
 
 <section id="contact" data-aos="fade-up">
   <h2>Contact</h2>
-  <p><i class="fas fa-envelope"></i> <a href="mailto:omarjalelytt@gmail.com">omarjalelytt@gmail.com</a></p>
-  <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/omar-jalel/" target="_blank">linkedin.com/in/omar-jalel</a></p>
-  <p><i class="fas fa-map-marker-alt"></i> Malta</p>
+  <p><i class="fas fa-envelope"></i><a href="mailto:omarjalelytt@gmail.com">omarjalelytt@gmail.com</a></p>
+  <p><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/omar-jalel/" target="_blank">linkedin.com/in/omar-jalel</a></p>
+  <p><i class="fas fa-map-marker-alt"></i>Malta</p>
 </section>
 
 <footer>
