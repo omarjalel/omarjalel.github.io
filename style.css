@@ -330,3 +330,29 @@ body.dark #contact i {
         font-size: 0.7rem;
     }
 }
+/* =========================
+   LANGUAGE SWITCHER
+========================= */
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.lang-switcher a {
+    display: inline-block;
+    margin-left: 8px;
+}
+
+.lang-switcher img {
+    width: 24px;
+    height: auto;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: transform 0.2s;
+}
+
+.lang-switcher img:hover {
+    transform: scale(1.2);
+}
+
