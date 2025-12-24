@@ -266,3 +266,18 @@ body.dark #contact i {
     color: var(--btn-bg);
 }
 
+/* =========================
+   CONTACT ICONS - MOBILE ENHANCEMENT
+========================= */
+@media (max-width: 600px) {
+    #contact p {
+        font-size: 1.2rem;
+    }
+
+    #contact i {
+        font-size: 1.5rem;
+        min-width: 30px;
+    }
+}
+
+
