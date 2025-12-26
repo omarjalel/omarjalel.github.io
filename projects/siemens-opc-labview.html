@@ -2,12 +2,98 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Siemens S7-1500 & OPC UA – LabVIEW</title>
   <link rel="stylesheet" href="../style.css">
+  <style>
+    /* Container */
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color, #f4f4f4);
+      color: var(--text-color, #333);
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 120px auto 60px;
+      padding: 0 20px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: var(--primary-color, #1f4e79);
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      list-style: disc inside;
+      margin-bottom: 30px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    video {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    /* Back Button */
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 30px;
+      padding: 10px 20px;
+      background-color: var(--primary-color, #1f4e79);
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .back-btn:hover {
+      background-color: #163f5c;
+    }
+
+    /* Dark Mode Toggle */
+    .dark-mode-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 15px;
+      background-color: var(--primary-color, #1f4e79);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .dark-mode {
+      --bg-color: #121212;
+      --text-color: #f4f4f4;
+      --primary-color: #4dabf5;
+    }
+  </style>
 </head>
 <body>
 
-<section style="padding-top:120px; max-width:900px; margin:auto;">
+<button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+
+<div class="container">
+  <a href="../index.html" class="back-btn">← Back to Portfolio</a>
+
   <h2>Siemens S7-1500 Digital Assembly Simulation & OPC UA Connectivity</h2>
 
   <p>
@@ -23,14 +109,19 @@
     <li>Real-time Connectivity Achieved</li>
   </ul>
 
-  <div style="margin-top:30px;">
-    <video controls width="100%" style="border-radius:10px;">
+  <div>
+    <video controls>
       <source src="../videos/SiemensPLC-OPC-LabView.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
   </div>
+</div>
 
-</section>
+<script>
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+  }
+</script>
 
 </body>
 </html>
