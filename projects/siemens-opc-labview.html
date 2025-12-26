@@ -6,37 +6,49 @@
   <title>Siemens S7-1500 & OPC UA – LabVIEW</title>
   <link rel="stylesheet" href="../style.css">
   <style>
-    /* Container */
+    /* ===========================
+       Base Styles
+    ============================ */
+    :root {
+      --bg-color: #f4f4f4;
+      --text-color: #333;
+      --primary-color: #1f4e79;
+      --secondary-color: #555;
+      --accent-color: #4dabf5;
+    }
+
     body {
       font-family: "Segoe UI", Arial, sans-serif;
       line-height: 1.6;
       margin: 0;
       padding: 0;
-      background-color: var(--bg-color, #f4f4f4);
-      color: var(--text-color, #333);
+      background-color: var(--bg-color);
+      color: var(--text-color);
       transition: background-color 0.3s, color 0.3s;
     }
 
     .container {
       max-width: 900px;
-      margin: 120px auto 60px;
+      margin: 100px auto 60px;
       padding: 0 20px;
     }
 
     h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: var(--primary-color, #1f4e79);
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+      color: var(--primary-color);
     }
 
     p {
       font-size: 1.1rem;
       margin-bottom: 20px;
+      color: var(--secondary-color);
     }
 
     ul {
       list-style: disc inside;
       margin-bottom: 30px;
+      padding-left: 10px;
     }
 
     li {
@@ -45,8 +57,9 @@
 
     video {
       width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      margin-bottom: 40px;
     }
 
     /* Back Button */
@@ -54,16 +67,17 @@
       display: inline-block;
       margin-bottom: 30px;
       padding: 10px 20px;
-      background-color: var(--primary-color, #1f4e79);
+      background-color: var(--primary-color);
       color: white;
       border-radius: 5px;
       text-decoration: none;
       font-weight: bold;
-      transition: background-color 0.3s;
+      transition: background-color 0.3s, transform 0.2s;
     }
 
     .back-btn:hover {
       background-color: #163f5c;
+      transform: translateY(-2px);
     }
 
     /* Dark Mode Toggle */
@@ -72,56 +86,84 @@
       top: 20px;
       right: 20px;
       padding: 10px 15px;
-      background-color: var(--primary-color, #1f4e79);
+      background-color: var(--primary-color);
       color: white;
       border: none;
       border-radius: 5px;
       cursor: pointer;
       font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: background-color 0.3s;
     }
 
-    .dark-mode {
+    .dark-mode-toggle:hover {
+      background-color: var(--accent-color);
+    }
+
+    /* Dark Mode Styles */
+    body.dark-mode {
       --bg-color: #121212;
       --text-color: #f4f4f4;
       --primary-color: #4dabf5;
+      --secondary-color: #ccc;
+      --accent-color: #6ec1ff;
+    }
+
+    /* Smooth transitions */
+    body, h2, p, ul, li, video {
+      transition: all 0.3s ease;
+    }
+
+    /* Responsive */
+    @media(max-width: 600px) {
+      .container {
+        margin: 80px 15px 40px;
+      }
+      h2 {
+        font-size: 1.8rem;
+      }
+      p {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
 
-<button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+  <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
 
-<div class="container">
-  <a href="../index.html" class="back-btn">← Back to Portfolio</a>
+  <div class="container">
+    <a href="../index.html" class="back-btn">← Back to Portfolio</a>
 
-  <h2>Siemens S7-1500 Digital Assembly Simulation & OPC UA Connectivity</h2>
+    <h2>Siemens S7-1500 Digital Assembly Simulation & OPC UA Connectivity</h2>
 
-  <p>
-    Integration of Siemens S7-1500 PLC with LabVIEW supervision using OPC UA.
-    The project demonstrates real-time data exchange, digital assembly
-    simulation, and industrial supervision.
-  </p>
+    <p>
+      Integration of Siemens S7-1500 PLC with LabVIEW supervision using OPC UA.
+      The project demonstrates real-time data exchange, digital assembly
+      simulation, and industrial supervision.
+    </p>
 
-  <ul>
-    <li>Integration of Siemens S7-1500 with LabVIEW through OPC UA</li>
-    <li>Digital Assembly Simulation</li>
-    <li>LabVIEW Supervision with OPC UA</li>
-    <li>Real-time Connectivity Achieved</li>
-  </ul>
+    <ul>
+      <li>Integration of Siemens S7-1500 with LabVIEW through OPC UA</li>
+      <li>Digital Assembly Simulation</li>
+      <li>LabVIEW Supervision with OPC UA</li>
+      <li>Real-time Connectivity Achieved</li>
+    </ul>
 
-  <div>
     <video controls>
       <source src="../videos/SiemensPLC-OPC-LabView.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
   </div>
-</div>
 
-<script>
-  function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
-  }
-</script>
+  <script>
+    function toggleDarkMode() {
+      const body = document.body;
+      body.classList.toggle('dark-mode');
+      const btn = document.querySelector('.dark-mode-toggle');
+      btn.textContent = body.classList.contains('dark-mode') ? '☀️ Light Mode' : '🌙 Dark Mode';
+    }
+  </script>
 
 </body>
 </html>
