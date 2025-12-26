@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testing IIoT Gateway - Apache StreamPipes with Kafka Broker</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    /* ===========================
+       Base Styles
+    ============================ */
+    :root {
+      --text-color: #333;
+      --secondary-color: #555;
+      --primary-color: #1f4e79;
+      --accent-color: #4dabf5;
+    }
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      color: var(--text-color);
+      transition: all 0.3s ease;
+      /* Animated Gradient Background for Light Mode */
+      background: linear-gradient(-45deg, #e0f7fa, #fce4ec, #c8e6c9, #ffe0b2);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 100px auto 60px;
+      padding: 0 20px;
+      background: rgba(255,255,255,0.8); /* subtle backdrop for readability */
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      transition: background 0.3s;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+      color: var(--primary-color);
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      color: var(--secondary-color);
+    }
+
+    ul {
+      list-style: disc inside;
+      margin-bottom: 30px;
+      padding-left: 10px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    /* Back Button */
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 30px;
+      padding: 10px 20px;
+      background-color: var(--primary-color);
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .back-btn:hover {
+      background-color: #163f5c;
+      transform: translateY(-2px);
+    }
+
+    /* Dark Mode Toggle */
+    .dark-mode-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 15px;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: background-color 0.3s;
+      z-index: 10;
+    }
+
+    .dark-mode-toggle:hover {
+      background-color: var(--accent-color);
+    }
+
+    /* Vimeo iframe responsive */
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 ratio */
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      margin-bottom: 40px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Dark Mode Styles */
+    body.dark-mode {
+      --text-color: #f4f4f4;
+      --secondary-color: #ccc;
+      --primary-color: #4dabf5;
+      --accent-color: #6ec1ff;
+      /* Animated Gradient Background for Dark Mode */
+      background: linear-gradient(-45deg, #121212, #1c1c1c, #2a2a2a, #121212);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+    }
+
+    body.dark-mode .container {
+      background: rgba(18,18,18,0.85); /* slightly transparent for readability */
+    }
+
+    /* Responsive */
+    @media(max-width: 600px) {
+      .container {
+        margin: 80px 15px 40px;
+      }
+      h2 {
+        font-size: 1.8rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+
+  <div class="container">
+    <a href="../index.html" class="back-btn">← Back to Portfolio</a>
+
+    <h2>Testing IIoT Gateway - Apache StreamPipes with Kafka Broker</h2>
+
+    <p>
+Project description :
+vehicle simulator runs on a Raspberry Pi using a virtual CAN network, streaming telemetry data via 
+MQTT through Apache StreamPipes and Kafka for real-time visualization and analysis
+    </p>
+
+    <ul>
+      <li>Run a vehicle simulator in a Raspberry Pi through virtual CAN Network</li>
+      <li>Expose some Data via Raspberry Pi VCAN (vehicle Speed, Engine Speed, Temperature...)</li>
+      <li>Run Apache StreamPipes Gateway and add MQTT Adapters for each telemetry</li>
+      <li>Deploy the adapters and read time series data from MQTT Broker</li>
+      <li>Forward data from Apache StreamPipes to Apache Kafka Broker hosted locally</li>
+      <li>Data Visualization</li>
+    </ul>
+
+
+    <div class="video-container">
+      <iframe 
+        src="https://youtu.be/ZQfke56F8ME" 
+        allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
+        allowfullscreen
+        title="Testing IIoT Gateway - Apache StreamPipes with Kafka Broker">
+      </iframe>
+    </div>
+  </div>
+
+  <script>
+    function toggleDarkMode() {
+      const body = document.body;
+      body.classList.toggle('dark-mode');
+      const btn = document.querySelector('.dark-mode-toggle');
+      btn.textContent = body.classList.contains('dark-mode') ? '☀️ Light Mode' : '🌙 Dark Mode';
+    }
+  </script>
+
+</body>
+</html>
