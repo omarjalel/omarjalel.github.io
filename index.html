@@ -8,7 +8,7 @@
   <!-- AOS Animation Library -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-  <!-- Font Awesome -->
+  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
   <!-- Custom CSS -->
@@ -33,9 +33,10 @@
 
   <button id="theme-toggle" class="theme-toggle">🌙</button>
 
+  <!-- Language switcher -->
   <div class="lang-switcher">
-    <a href="index.html"><img src="flags/us.svg" alt="English"></a>
-    <a href="index-fr.html"><img src="flags/fr.svg" alt="Français"></a>
+    <a href="index.html" title="English"><img src="flags/us.svg" alt="English" /></a>
+    <a href="index-fr.html" title="Français"><img src="flags/fr.svg" alt="Français" /></a>
   </div>
 </nav>
 
@@ -63,22 +64,88 @@
 
 <section id="experience" data-aos="fade-up">
   <h2>Experience</h2>
-  <!-- unchanged content -->
+
+  <div class="card" data-aos="fade-up" data-aos-delay="100">
+    <h3>Methode Electronics – Malta</h3>
+    <span>Industrial Automation Engineer (2024 – Present)</span>
+    <ul>
+      <li>Design and document electrical schematics and control panels for new machines</li>
+      <li>Electrical panel wiring: PLCs, Sensors, Emergencies & Safety components, MVK, IO Links, HMIs, VFDs, Valves</li>
+      <li>PLC and HMI Screens Programming under Tia Portal and WinCC</li>
+      <li>Collaborating with Cross-Functional teams including Manufacturing engineering, Maintenance, IT Department</li>
+      <li>Provide the necessary training for operators and technical instruction for the maintenance team</li>
+      <li>Ensure that automation systems comply with the safety standards</li>
+      <li>Enhance and upgrade Existing automation Program to reduce downtimes and production cycle time</li>
+      <li>Online monitoring and troubleshooting of automated systems</li>
+    </ul>
+  </div>
+
+  <div class="card" data-aos="fade-up" data-aos-delay="200">
+    <h3>Discovery Informatique SA – Tunisia</h3>
+    <span>Industrial Integration Consultant (2022 – 2024)</span>
+    <ul>
+      <li>Study and demonstrate IIOT tools and technologies on behalf of several industrial clients</li>
+      <li>Participate in the study of new technologies and documentation within the R&D department</li>
+      <li>Participate in the tasks of demos, studies, implementations for MES integration</li>
+      <li>Identify IIOT communication points: feasibility, equipment, budget</li>
+      <li>Develop a communication gateway to monitor and collect machine variables in real time via several industrial protocols</li>
+      <li>Improve the gateway to archive collected data and operate in multi-node mode</li>
+    </ul>
+  </div>
+
+  <div class="card" data-aos="fade-up" data-aos-delay="200">
+    <h3>APBS Avicenna Private Business Schools – Tunisia</h3>
+    <span>IT and Maintenance Support (2021 – 2022)</span>
+    <ul>
+      <li>Maintain and adjust computer and electronic equipment</li>
+      <li>Monitor online sessions and conferences</li>
+      <li>Participate in wiring and installation of equipment (cameras, touch screens)</li>
+      <li>Develop a solution for mixing multiple cameras and audio sources</li>
+    </ul>
+  </div>
 </section>
 
 <section id="projects" data-aos="fade-up">
   <h2>Projects</h2>
-  <!-- unchanged content -->
+
+  <div class="card" data-aos="fade-up" data-aos-delay="300">
+    <h3>BMW Automotive Production Line</h3>
+    <p>Programming and commissioning of simple machines and turntables using Siemens S7-1500 PLCs and WinCC HMI.</p>
+    <span>Siemens S7-1500 · TIA Portal · WinCC · PROFINET</span>
+  </div>
+
+  <div class="card" data-aos="fade-up" data-aos-delay="200">
+    <h3>Vision Inspection System (Robot + PLC)</h3>
+    <p>Development of a vision-based inspection system using a Matrox camera and a 6-axis JAKA robot controlled via Siemens PLC.</p>
+    <span>Vision Systems · Robotics · Siemens PLC · PROFINET</span>
+  </div>
+
+  <div class="card" data-aos="fade-up" data-aos-delay="300">
+    <h3>IIoT Industrial Gateway</h3>
+    <p>Real-time machine data acquisition gateway designed for MES integration, supporting multi-node operation and data archiving.</p>
+    <span>OPC UA · Modbus TCP · MQTT · Apache Kafka · Docker</span>
+  </div>
 </section>
 
 <section id="education" data-aos="fade-up">
   <h2>Education</h2>
-  <!-- unchanged content -->
+
+  <div class="card">
+    <h4>Professional Master's in Industrial Systems Control</h4>
+    <p>University of Carthage - ISSAT Mateur [ 15 Sep 2019 – 15 Jun 2021 ]</p>
+    <p>City: Bizerte | Country: Tunisia | <a href="https://ucar.rnu.tn/" target="_blank">Website</a> | Level: EQF 7</p>
+  </div>
+
+  <div class="card">
+    <h4>Applied Degree in Automation of Industrial Systems (Bachelor's)</h4>
+    <p>University of Carthage - ISSAT Mateur [ 15 Sep 2016 – 15 Jun 2019 ]</p>
+    <p>City: Bizerte | Country: Tunisia | <a href="https://ucar.rnu.tn/" target="_blank">Website</a> | Level: EQF 6</p>
+  </div>
 </section>
 
 <section id="skills" data-aos="fade-up">
   <h2>Skills</h2>
-  <!-- unchanged content -->
+  <!-- unchanged skills content -->
 </section>
 
 <!-- =========================
@@ -88,28 +155,22 @@
   <h2>Creative Projects</h2>
 
   <div class="projects-grid">
-
-    <a href="projects/siemens-opc-labview.html"
-       target="_blank"
-       class="creative-card">
-
+    <a href="projects/siemens-opc-labview.html" target="_blank" class="creative-card">
       <div class="card-overlay">
         <span class="show-more">Show more</span>
       </div>
-
       <h3>Siemens S7-1500 Digital Assembly & OPC UA</h3>
       <p>
-        Digital assembly simulation using Siemens S7-1500 PLC with
-        real-time OPC UA connectivity to LabVIEW supervision.
+        Integration of Siemens S7-1500 PLC with LabVIEW using OPC UA for
+        real-time supervision and digital assembly simulation.
       </p>
     </a>
-
   </div>
 </section>
 
 <section id="languages" data-aos="fade-up">
   <h2>Languages</h2>
-  <!-- unchanged content -->
+  <!-- unchanged languages content -->
 </section>
 
 <section id="contact" data-aos="fade-up">
