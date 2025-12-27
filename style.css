@@ -604,59 +604,54 @@ body.dark .experience-logo {
 }
 
 /* =========================
-   TOOL LOGO TOOLTIP
+   TOOLS RIBBON
 ========================= */
+.tools-ribbon {
+  overflow-x: auto;        /* allow horizontal scrolling */
+  overflow-y: hidden;
+  padding: 10px 0;
+  background: var(--card-bg);
+  border-top: 1px solid var(--card-border);
+  border-bottom: 1px solid var(--card-border);
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+.tools-track {
+  display: flex;
+  gap: 20px;              /* spacing between logos */
+  padding: 0 10px;
+  min-width: max-content;  /* prevent wrapping */
+  align-items: center;
+}
 
 .tools-track img {
-  position: relative;
+  height: 40px;           /* uniform logo size */
+  width: auto;
   cursor: default;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* Tooltip bubble */
-.tools-track img::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  bottom: 120%;
-  left: 50%;
-  transform: translateX(-50%) translateY(6px);
-  background: rgba(0, 0, 0, 0.85);
-  color: #fff;
-  padding: 5px 10px;
-  font-size: 0.75rem;
-  white-space: nowrap;
-  border-radius: 6px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.25s ease, transform 0.25s ease;
-  z-index: 20;
-}
-
-/* Tooltip arrow */
-.tools-track img::before {
-  content: "";
-  position: absolute;
-  bottom: 110%;
-  left: 50%;
-  transform: translateX(-50%);
-  border-width: 6px;
-  border-style: solid;
-  border-color: rgba(0, 0, 0, 0.85) transparent transparent transparent;
-  opacity: 0;
-  transition: opacity 0.25s ease;
-}
-
-/* Show tooltip on hover */
-.tools-track img:hover::after,
-.tools-track img:hover::before {
+.tools-track img:hover {
+  transform: scale(1.15);
   opacity: 1;
-  transform: translateX(-50%) translateY(0);
 }
 
-/* Dark mode refinement */
-body.dark .tools-track img::after {
-  background: rgba(20, 20, 20, 0.95);
+/* Optional: hide scrollbar for cleaner look */
+.tools-ribbon::-webkit-scrollbar {
+  height: 6px;
+}
+.tools-ribbon::-webkit-scrollbar-thumb {
+  background-color: var(--btn-bg);
+  border-radius: 3px;
+}
+.tools-ribbon::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-
-
-
+/* Responsive: smaller logos on mobile */
+@media (max-width: 768px) {
+  .tools-track img {
+    height: 30px;
+  }
+}
