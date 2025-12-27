@@ -101,24 +101,44 @@ hamburger.addEventListener('click', () => {
 });
 
 // =====================
-// Certificate Flip Cards
+// Certificate Flip Cards - FIXED
 // =====================
 document.addEventListener('DOMContentLoaded', function() {
+  // Initialize certificate cards
+  initCertificateCards();
+  
+  // Re-initialize when DOM changes (for dynamic content)
+  const observer = new MutationObserver(function() {
+    initCertificateCards();
+  });
+  
+  observer.observe(document.body, { childList: true, subtree: true });
+});
+
+function initCertificateCards() {
   const certificateCards = document.querySelectorAll('.certificate-card:not(.coming-soon)');
   
   certificateCards.forEach(card => {
+    // Skip if already initialized
+    if (card.dataset.initialized) return;
+    
     const viewMoreBtn = card.querySelector('.view-more-btn');
     const flipBackBtn = card.querySelector('.flip-back-btn');
     const inner = card.querySelector('.certificate-inner');
     
+    if (!viewMoreBtn || !flipBackBtn || !inner) return;
+    
     // Click to flip
     viewMoreBtn.addEventListener('click', function(e) {
       e.stopPropagation();
+      e.preventDefault();
       card.classList.add('flipped');
     });
     
+    // Close button
     flipBackBtn.addEventListener('click', function(e) {
       e.stopPropagation();
+      e.preventDefault();
       card.classList.remove('flipped');
     });
     
@@ -141,16 +161,20 @@ document.addEventListener('DOMContentLoaded', function() {
         inner.style.transform = '';
       }
     });
+    
+    // Mark as initialized
+    card.dataset.initialized = 'true';
   });
   
   // Coming soon card animation
   const comingSoonCard = document.querySelector('.coming-soon');
-  if (comingSoonCard) {
+  if (comingSoonCard && !comingSoonCard.dataset.initialized) {
     comingSoonCard.addEventListener('click', function() {
       this.style.transform = 'scale(0.95)';
       setTimeout(() => {
         this.style.transform = '';
       }, 200);
     });
+    comingSoonCard.dataset.initialized = 'true';
   }
-});
+}
