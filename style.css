@@ -13,6 +13,7 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     transition: background 0.4s, color 0.4s;
+    overflow-x: hidden;
 }
 
 /* =========================
@@ -33,6 +34,8 @@ body {
     --footer-color: #000;
     --link-color: #00c6ff;
     --hero-bg: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    --max-content-width: 1400px;
+    --section-padding: 80px 20px;
 }
 
 /* DARK MODE */
@@ -64,7 +67,7 @@ nav {
     color: var(--nav-link);
     display: flex;
     justify-content: space-between;
-    padding: 15px 40px;
+    padding: 15px 5%;
     z-index: 1000;
     transition: background 0.4s;
     align-items: center;
@@ -103,18 +106,19 @@ nav a {
 }
 
 /* =========================
-   HERO
+   HERO - FULL WIDTH
 ========================= */
 .hero {
     position: relative;
     height: 100vh;
     background: var(--hero-bg);
-    color: var(--text-color);
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     overflow: hidden;
+    width: 100%;
 }
 
 #particles-js {
@@ -127,15 +131,20 @@ nav a {
 .hero-content {
     position: relative;
     z-index: 2;
+    width: 100%;
+    max-width: var(--max-content-width);
+    padding: 0 20px;
 }
 
 .hero h1 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
+    margin-bottom: 15px;
 }
 
 .hero p {
     margin-top: 10px;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    opacity: 0.9;
 }
 
 /* =========================
@@ -144,18 +153,19 @@ nav a {
 .btn {
     background-color: var(--btn-bg);
     color: var(--btn-color);
-    padding: 12px 20px;
-    margin: 10px;
+    padding: 14px 28px;
+    margin: 15px 10px;
     text-decoration: none;
-    border-radius: 6px;
+    border-radius: 8px;
     font-weight: bold;
     display: inline-block;
     transition: transform 0.3s, box-shadow 0.3s;
+    font-size: 1rem;
 }
 
 .btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
 
 .btn.outline {
@@ -165,71 +175,110 @@ nav a {
 }
 
 /* =========================
-   SECTIONS
+   SECTIONS - FULL WIDTH
 ========================= */
 section {
-    padding: 90px 40px;
-    max-width: 1000px;
-    margin: auto;
+    padding: var(--section-padding);
+    width: 100%;
+}
+
+.section-content {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    width: 100%;
 }
 
 section h2 {
     color: var(--section-h2);
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    font-size: 2.2rem;
+    text-align: center;
+    position: relative;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--section-h2);
 }
 
 /* =========================
-   CARDS
+   CARDS - FULL WIDTH
 ========================= */
 .card {
     background-color: var(--card-bg);
     border-left: 5px solid var(--card-border);
-    padding: 25px;
-    margin-bottom: 25px;
+    padding: 30px;
+    margin-bottom: 30px;
     color: var(--text-color);
     transition: transform 0.3s, box-shadow 0.3s;
+    width: 100%;
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
 }
 
 .card span {
     display: block;
     margin-top: 10px;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    color: var(--section-h2);
+    font-weight: 500;
+}
+
+.card ul {
+    margin-top: 15px;
+    padding-left: 20px;
+}
+
+.card li {
+    margin-bottom: 8px;
+    line-height: 1.6;
 }
 
 /* =========================
-   GRID & SKILLS
+   GRID & SKILLS - FULL WIDTH
 ========================= */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    width: 100%;
 }
 
 .skill-bar, .lang-bar {
     background: #ddd;
     border-radius: 10px;
     overflow: hidden;
-    height: 18px;
-    margin: 5px 0 15px;
+    height: 20px;
+    margin: 8px 0 20px;
     position: relative;
+}
+
+body.dark .skill-bar, 
+body.dark .lang-bar {
+    background: #333;
 }
 
 .skill-fill, .lang-bar span {
     display: block;
     height: 100%;
     width: 0; /* start from 0 for animation */
-    background: var(--btn-bg);
+    background: linear-gradient(90deg, var(--btn-bg), #0072ff);
     border-radius: 10px;
     text-align: right;
     color: #fff;
-    padding-right: 5px;
-    line-height: 18px;
-    font-size: 0.8rem;
+    padding-right: 10px;
+    line-height: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
     transition: width 1.5s ease;
 }
 
@@ -240,14 +289,16 @@ section h2 {
     display: flex;
     align-items: center;
     font-size: 1.1rem;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    justify-content: center;
 }
 
 #contact i {
-    margin-right: 10px;
+    margin-right: 15px;
     color: var(--btn-bg);
-    font-size: 1.3rem;
-    min-width: 25px;
+    font-size: 1.4rem;
+    min-width: 30px;
+    text-align: center;
 }
 
 body.dark #contact i {
@@ -262,6 +313,7 @@ body.dark #contact i {
 
 #contact a:hover {
     color: var(--btn-bg);
+    text-decoration: underline;
 }
 
 /* =========================
@@ -296,7 +348,7 @@ body.dark #contact i {
 @media (max-width: 768px) {
     nav {
         flex-wrap: wrap;
-        padding: 10px 20px;
+        padding: 10px 5%;
     }
 
     nav ul {
@@ -323,144 +375,140 @@ body.dark #contact i {
     }
 }
 
-@media (max-width: 600px) {
-    section {
-        padding: 60px 20px;
+@media (max-width: 1024px) {
+    :root {
+        --section-padding: 70px 15px;
     }
+    
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    section h2 {
+        font-size: 1.8rem;
+    }
+}
 
+@media (max-width: 600px) {
+    :root {
+        --section-padding: 60px 10px;
+    }
+    
     .hero h1 {
         font-size: 1.8rem;
     }
 
     .hero p {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 
     .cta .btn {
-        padding: 8px 14px;
-        margin: 5px;
+        padding: 12px 20px;
+        margin: 8px;
         font-size: 0.9rem;
+        display: block;
+        width: 90%;
+        max-width: 250px;
+        margin: 10px auto;
     }
 
     .card {
-        padding: 15px;
+        padding: 20px;
     }
 
     .card span {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
     }
 
     .grid {
-        gap: 15px;
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     .skill-fill, .lang-bar span {
-        font-size: 0.7rem;
+        font-size: 0.75rem;
     }
 }
 
-.hero-photo {
-    width: 150px; /* adjust as needed */
-    height: 150px;
-    border-radius: 50%; /* makes it circular */
-    object-fit: cover;
-    margin-bottom: 20px;
-    border: 3px solid var(--btn-bg);
+.profile-photo {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 30px;
+    border: 4px solid var(--btn-bg);
+    background-color: #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.hero-photo:hover {
+.profile-photo:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
-}
-
-.profile-photo {
-    width: 200px;          /* diameter of the circle */
-    height: 200px;         /* same as width to make it circular */
-    object-fit: contain;   /* ensures full image fits inside circle */
-    border-radius: 50%;    /* makes it circular */
-    display: block;
-    margin: 0 auto 20px;   /* centers it and adds spacing below */
-    border: 3px solid var(--btn-bg); /* optional: adds a nice border */
-    background-color: #fff; /* optional: background behind the image */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
 }
 
 /* =========================
-   CREATIVE PROJECTS
+   CREATIVE PROJECTS - FULL WIDTH
 ========================= */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    width: 100%;
 }
 
 .creative-card {
     position: relative;
     background: var(--card-bg);
     border-left: 5px solid var(--card-border);
-    padding: 25px;
     text-decoration: none;
     color: var(--text-color);
     overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s;
+    width: 100%;
 }
 
 .creative-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
-}
-
-.card-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.55);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.creative-card:hover .card-overlay {
-    opacity: 1;
-}
-
-.show-more {
-    background: var(--btn-bg);
-    color: var(--btn-color);
-    padding: 10px 18px;
-    border-radius: 6px;
-    font-weight: bold;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
 }
 
 /* =========================
-   Creative Projects Layout
+   Creative Projects Layout - FULL WIDTH
 ========================= */
 .project-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Equal width */
-  gap: 30px;
-  padding: 25px;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 35px;
   text-decoration: none;
   color: inherit;
   position: relative;
+  width: 100%;
 }
 
 .project-info h3 {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: var(--section-h2);
 }
 
 .project-info p {
-  margin-bottom: 15px;
-  line-height: 1.6;
+  margin-bottom: 20px;
+  line-height: 1.7;
+  font-size: 1.05rem;
 }
 
 /* Project image */
 .project-image {
   width: 100%;
+  height: 250px;
+  object-fit: cover;
   border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
   transition: transform 0.3s ease;
+  margin-bottom: 15px;
 }
 
 .project-layout:hover .project-image {
@@ -471,15 +519,17 @@ body.dark #contact i {
   position: relative;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
   cursor: pointer;
+  height: 100%;
+  min-height: 300px;
 }
 
 .project-video-preview video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.6);
+  filter: brightness(0.7);
   display: block;
 }
 
@@ -492,42 +542,42 @@ body.dark #contact i {
   justify-content: center;
   align-items: center;
   color: #fff;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   background: rgba(0,0,0,0.0);
   opacity: 0;
   transition: opacity 0.3s ease, background 0.3s ease;
 }
 
 .video-overlay i {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
+  font-size: 3rem;
+  margin-bottom: 15px;
 }
 
 .project-layout:hover .video-overlay {
-  background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.5);
   opacity: 1;
 }
 
 /* =========================
    EXPERIENCE LOGOS
 ========================= */
-
 .experience-card {
     position: relative;
+    padding-right: 120px;
 }
 
 /* Logo positioning */
 .experience-logo {
     position: absolute;
-    top: 18px;
-    right: 18px;
-    max-width: 75px;
-    max-height: 45px;
+    top: 30px;
+    right: 30px;
+    max-width: 80px;
+    max-height: 50px;
     object-fit: contain;
     opacity: 0.75;
     filter: grayscale(100%);
     transition: transform 0.35s ease, opacity 0.35s ease, filter 0.35s ease;
-    pointer-events: none; /* avoids hover conflicts */
+    pointer-events: none;
 }
 
 /* Hover effect */
@@ -544,11 +594,17 @@ body.dark .experience-logo {
 
 /* Mobile: keep layout clean */
 @media (max-width: 600px) {
+    .experience-card {
+        padding-right: 20px;
+    }
+    
     .experience-logo {
+        position: relative;
+        top: auto;
+        right: auto;
         max-width: 60px;
         max-height: 38px;
-        top: 12px;
-        right: 12px;
+        margin-bottom: 15px;
     }
 }
 
@@ -561,7 +617,7 @@ body.dark .experience-logo {
   left: 0;
   right: 0;
   overflow: hidden;
-  padding: 12px 0;
+  padding: 15px 0;
   background: var(--card-bg);
   border-top: 1px solid var(--card-border);
   border-bottom: 1px solid var(--card-border);
@@ -572,15 +628,15 @@ body.dark .experience-logo {
 
 .tools-track {
   display: flex;
-  gap: 25px;
+  gap: 30px;
   align-items: center;
-  animation: scrollRibbon 20s linear infinite;
+  animation: scrollRibbon 25s linear infinite;
   width: max-content;
 }
 
 /* Logo styles */
 .tools-track img {
-  height: 32px;
+  height: 35px;
   width: auto;
   transition: transform 0.3s ease, opacity 0.3s ease;
   filter: grayscale(100%);
@@ -608,90 +664,104 @@ body.dark .experience-logo {
   }
 }
 
-/* Responsive adjustments */
-@media (max-width: 900px) {
-  .project-layout {
-    grid-template-columns: 1fr;
-    padding-bottom: 70px; /* Make room for the ribbon */
-  }
-  
-  .tools-ribbon {
-    position: relative;
-    margin-top: 15px;
+/* =========================
+   LANGUAGES SECTION
+========================= */
+.language-card {
+    background: var(--card-bg);
+    padding: 25px;
+    margin-bottom: 25px;
     border-radius: 8px;
-  }
+    border-left: 5px solid var(--card-border);
 }
 
-@media (max-width: 768px) {
-  .tools-track {
-    gap: 20px;
-  }
-  
-  .tools-track img {
-    height: 28px;
-  }
-}
-
-@media (max-width: 480px) {
-  .tools-track {
-    gap: 15px;
-  }
-  
-  .tools-track img {
-    height: 24px;
-  }
-  
-  @keyframes scrollRibbon {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
+.language-card h4 {
+    margin-bottom: 15px;
+    color: var(--section-h2);
 }
 
 /* =========================
-   EXPERIENCE LOGOS
+   FOOTER - FULL WIDTH
 ========================= */
-
-.experience-card {
-    position: relative;
+footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-color);
+    text-align: center;
+    padding: 30px 20px;
+    width: 100%;
+    margin-top: 60px;
 }
 
-/* Logo positioning */
-.experience-logo {
-    position: absolute;
-    top: 18px;
-    right: 18px;
-    max-width: 75px;
-    max-height: 45px;
-    object-fit: contain;
-    opacity: 0.75;
-    filter: grayscale(100%);
-    transition: transform 0.35s ease, opacity 0.35s ease, filter 0.35s ease;
-    pointer-events: none; /* avoids hover conflicts */
+footer p {
+    font-size: 1rem;
+    opacity: 0.8;
 }
 
-/* Hover effect */
-.experience-card:hover .experience-logo {
-    opacity: 1;
-    filter: grayscale(0%);
-    transform: scale(1.05);
+/* =========================
+   RESPONSIVE ADJUSTMENTS FOR PROJECT LAYOUT
+========================= */
+@media (max-width: 1100px) {
+    .project-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding-bottom: 90px;
+    }
+    
+    .project-video-preview {
+        min-height: 250px;
+    }
+    
+    .tools-ribbon {
+        position: relative;
+        margin-top: 20px;
+        border-radius: 8px;
+    }
 }
 
-/* Dark mode fine-tuning */
-body.dark .experience-logo {
-    opacity: 0.85;
+@media (max-width: 768px) {
+    .project-layout {
+        padding: 25px;
+        gap: 25px;
+    }
+    
+    .tools-track {
+        gap: 20px;
+    }
+    
+    .tools-track img {
+        height: 28px;
+    }
+    
+    .project-info h3 {
+        font-size: 1.3rem;
+    }
+    
+    .project-info p {
+        font-size: 1rem;
+    }
 }
 
-/* Mobile: keep layout clean */
-@media (max-width: 600px) {
-    .experience-logo {
-        max-width: 60px;
-        max-height: 38px;
-        top: 12px;
-        right: 12px;
+@media (max-width: 480px) {
+    .project-layout {
+        padding: 20px;
+        gap: 20px;
+    }
+    
+    .tools-track {
+        gap: 15px;
+    }
+    
+    .tools-track img {
+        height: 24px;
+    }
+    
+    @keyframes scrollRibbon {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
     }
 }
 
@@ -700,5 +770,5 @@ body.dark .experience-logo {
 ========================= */
 .project-layout {
   position: relative;
-  padding-bottom: 80px; /* Add space at bottom for ribbon */
+  padding-bottom: 90px;
 }
