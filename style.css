@@ -439,12 +439,13 @@ body.dark #contact i {
 
 .project-layout {
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
+  grid-template-columns: 1.4fr minmax(250px, 1fr); /* Right side minimum 250px */
   gap: 30px;
   padding: 25px;
   text-decoration: none;
   color: inherit;
 }
+
 
 .project-info h3 {
   margin-bottom: 10px;
