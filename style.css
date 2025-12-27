@@ -439,12 +439,11 @@ body.dark #contact i {
 
 .project-layout {
   display: grid;
-  grid-template-columns: 1.4fr minmax(250px, 1fr); /* Right side minimum 250px */
+  grid-template-columns: 1.4fr minmax(250px, 1fr);
   gap: 30px;
-  padding: 25px;
-  text-decoration: none;
-  color: inherit;
+  align-items: start; /* Prevent right side from stretching */
 }
+
 
 
 .project-info h3 {
@@ -469,19 +468,18 @@ body.dark #contact i {
 }
 
 .project-video-preview {
-  position: relative;
+  height: 400px;         /* fixed height */
+  max-height: 400px;     /* ensure it doesn't grow */
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-  cursor: pointer;
+  position: relative;
 }
 
 .project-video-preview video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.6);
-  display: block;
 }
 
 /* Overlay hidden initially */
@@ -612,8 +610,8 @@ body.dark .experience-logo {
    TOOLS RIBBON SCROLLING
 ========================= */
 .tools-ribbon {
-  height: 60px; /* fixed height */
-  overflow: hidden; /* hide overflowing logos */
+  height: 60px;           /* fixed height */
+  overflow: hidden;        /* hide excess logos */
   padding: 10px 0;
   background: var(--card-bg);
   border-top: 1px solid var(--card-border);
@@ -622,12 +620,11 @@ body.dark .experience-logo {
   position: relative;
 }
 
-
 .tools-track {
   display: flex;
   gap: 20px;
   align-items: center;
-  min-width: max-content; /* prevent wrapping */
+  min-width: max-content;
   animation: scrollRibbon 15s linear infinite;
 }
 
