@@ -836,13 +836,13 @@ footer p {
   overflow: hidden;
 }
 
-/* Hover effect when not flipped */
-.certificate-card:not(.flipped):hover .certificate-inner {
+/* CRITICAL FIX: Removed the conflicting hover transform */
+/* .certificate-card:not(.flipped):hover .certificate-inner {
   transform: scale(1.02);
   transition: transform 0.3s ease;
-}
+} */
 
-/* Flip animation */
+/* Flip animation - THIS IS THE ONLY TRANSFORM THAT SHOULD APPLY */
 .certificate-card.flipped .certificate-inner {
   transform: rotateY(180deg) !important;
 }
