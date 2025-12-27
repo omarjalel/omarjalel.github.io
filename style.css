@@ -515,3 +515,93 @@ body.dark #contact i {
   }
 }
 
+/* =========================
+   EXPERIENCE LOGOS
+========================= */
+
+.experience-card {
+    position: relative;
+}
+
+/* Logo positioning */
+.experience-logo {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    max-width: 75px;
+    max-height: 45px;
+    object-fit: contain;
+    opacity: 0.75;
+    filter: grayscale(100%);
+    transition: transform 0.35s ease, opacity 0.35s ease, filter 0.35s ease;
+    pointer-events: none; /* avoids hover conflicts */
+}
+
+/* Hover effect */
+.experience-card:hover .experience-logo {
+    opacity: 1;
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+/* Dark mode fine-tuning */
+body.dark .experience-logo {
+    opacity: 0.85;
+}
+
+/* Mobile: keep layout clean */
+@media (max-width: 600px) {
+    .experience-logo {
+        max-width: 60px;
+        max-height: 38px;
+        top: 12px;
+        right: 12px;
+    }
+}
+
+/* =========================
+   EXPERIENCE LOGOS
+========================= */
+
+.experience-card {
+    position: relative;
+}
+
+/* Logo positioning */
+.experience-logo {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    max-width: 75px;
+    max-height: 45px;
+    object-fit: contain;
+    opacity: 0.75;
+    filter: grayscale(100%);
+    transition: transform 0.35s ease, opacity 0.35s ease, filter 0.35s ease;
+    pointer-events: none; /* avoids hover conflicts */
+}
+
+/* Hover effect */
+.experience-card:hover .experience-logo {
+    opacity: 1;
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+/* Dark mode fine-tuning */
+body.dark .experience-logo {
+    opacity: 0.85;
+}
+
+/* Mobile: keep layout clean */
+@media (max-width: 600px) {
+    .experience-logo {
+        max-width: 60px;
+        max-height: 38px;
+        top: 12px;
+        right: 12px;
+    }
+}
+
+
+
