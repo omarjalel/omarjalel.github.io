@@ -626,7 +626,7 @@ body.dark .experience-logo {
   gap: 20px;
   align-items: center;
   min-width: max-content; /* prevent wrapping */
-  animation: scrollRibbon 15s linear infinite;
+  animation: scrollRibbon 20s linear infinite;
 }
 
 /* Duplicate for smooth loop */
@@ -662,4 +662,8 @@ body.dark .experience-logo {
   .tools-track img {
     height: 30px;
   }
+}
+/* Optional: pause on hover */
+.tools-track:hover {
+  animation-play-state: paused;
 }
