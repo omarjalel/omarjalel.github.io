@@ -836,10 +836,16 @@ footer p {
   overflow: hidden;
 }
 
-.certificate-card:hover .certificate-inner:not(.flipped) {
+/* Option A: Remove it completely */
+/* .certificate-card:hover .certificate-inner:not(.flipped) {
   transform: rotateY(10deg) rotateX(5deg) scale(1.02);
-}
+} */
 
+/* Option B: Make it more subtle */
+.certificate-card:not(.flipped):hover .certificate-inner {
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+}
 .certificate-card.flipped .certificate-inner {
   transform: rotateY(180deg) !important;
 }
@@ -850,8 +856,6 @@ footer p {
   position: absolute !important;
   width: 100% !important;
   height: 100% !important;
-  -webkit-backface-visibility: hidden !important;
-  backface-visibility: hidden !important;
   border-radius: 15px;
   padding: 30px;
   display: flex;
@@ -860,6 +864,8 @@ footer p {
   align-items: center;
   top: 0;
   left: 0;
+  -webkit-backface-visibility: hidden !important;
+  backface-visibility: hidden !important; /* Keep this for both */
 }
 
 /* Front Side */
@@ -932,12 +938,7 @@ body.dark .certificate-logo {
 
 /* Back Side - CRITICAL FIX */
 .certificate-back {
-  background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
-  color: white;
-  transform: rotateY(180deg) !important;
-  text-align: left;
-  overflow-y: auto;
-  z-index: 1;
+  transform: rotateY(180deg) !important; /* ← CRITICAL: Back starts rotated */
 }
 
 .certificate-header {
