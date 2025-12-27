@@ -101,18 +101,10 @@ hamburger.addEventListener('click', () => {
 });
 
 // =====================
-// Certificate Flip Cards - FIXED
+// Certificate Flip Cards - CRITICAL FIX
 // =====================
 document.addEventListener('DOMContentLoaded', function() {
-  // Initialize certificate cards
   initCertificateCards();
-  
-  // Re-initialize when DOM changes (for dynamic content)
-  const observer = new MutationObserver(function() {
-    initCertificateCards();
-  });
-  
-  observer.observe(document.body, { childList: true, subtree: true });
 });
 
 function initCertificateCards() {
@@ -123,44 +115,37 @@ function initCertificateCards() {
     if (card.dataset.initialized) return;
     
     const viewMoreBtn = card.querySelector('.view-more-btn');
-    const flipBackBtn = card.querySelector('.flip-back-btn');
     const inner = card.querySelector('.certificate-inner');
     
-    if (!viewMoreBtn || !flipBackBtn || !inner) return;
+    // Only need the front button to initialize
+    if (!viewMoreBtn || !inner) return;
     
-    // Click to flip
+    // 1. Click "View Details" to FLIP CARD (FRONT -> BACK)
     viewMoreBtn.addEventListener('click', function(e) {
       e.stopPropagation();
       e.preventDefault();
       card.classList.add('flipped');
     });
     
-    // Close button
-    flipBackBtn.addEventListener('click', function(e) {
-      e.stopPropagation();
-      e.preventDefault();
-      card.classList.remove('flipped');
+    // 2. Click ANY element with class '.flip-back-btn' to UNFLIP (BACK -> FRONT)
+    // Using event delegation on the card itself
+    card.addEventListener('click', function(e) {
+      if (e.target.closest('.flip-back-btn')) {
+        e.stopPropagation();
+        e.preventDefault();
+        card.classList.remove('flipped');
+      }
     });
     
-    // Click outside to flip back
+    // 3. Click outside the flipped card to close it
     document.addEventListener('click', function(e) {
       if (!card.contains(e.target) && card.classList.contains('flipped')) {
         card.classList.remove('flipped');
       }
     });
     
-    // Hover effect
-    card.addEventListener('mouseenter', function() {
-      if (!this.classList.contains('flipped')) {
-        inner.style.transform = 'rotateY(10deg) rotateX(5deg) scale(1.02)';
-      }
-    });
-    
-    card.addEventListener('mouseleave', function() {
-      if (!this.classList.contains('flipped')) {
-        inner.style.transform = '';
-      }
-    });
+    // 4. Remove the hover effect that conflicts with the flip animation
+    // We'll handle hover purely with CSS later
     
     // Mark as initialized
     card.dataset.initialized = 'true';
@@ -178,3 +163,26 @@ function initCertificateCards() {
     comingSoonCard.dataset.initialized = 'true';
   }
 }
+
+// =====================
+// Close mobile menu when clicking a link
+// =====================
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    if (window.innerWidth <= 768) {
+      navLinks.classList.remove('show');
+    }
+  });
+});
+
+// =====================
+// Add loading animation
+// =====================
+window.addEventListener('load', function() {
+  document.body.classList.add('loaded');
+  const skillsPos = skillsSection.getBoundingClientRect().top;
+  const screenPos = window.innerHeight / 1.3;
+  if (skillsPos < screenPos) {
+    fillBars();
+  }
+});
