@@ -648,17 +648,24 @@ body.dark .experience-logo {
 
 /* SCROLL ANIMATION */
 @keyframes scrollRibbon {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
-/* Responsive for mobile */
+/* Mobile */
 @media (max-width: 768px) {
-  .tools-track img {
-    height: 30px;
-  }
+  .tools-track img { height: 30px; }
+}
+
+.tools-ribbon-full {
+  width: 100vw;        /* full page width */
+  height: 60px;        /* fixed height */
+  overflow: hidden;
+  padding: 10px 0;
+  background: var(--card-bg);
+  border-top: 1px solid var(--card-border);
+  border-bottom: 1px solid var(--card-border);
+  border-radius: 8px;
+  position: relative;
+  margin-top: 15px;
 }
