@@ -360,9 +360,9 @@ body.dark #contact i {
 }
 
 .hero-photo {
-    width: 150px; 
+    width: 150px; /* adjust as needed */
     height: 150px;
-    border-radius: 50%;
+    border-radius: 50%; /* makes it circular */
     object-fit: cover;
     margin-bottom: 20px;
     border: 3px solid var(--btn-bg);
@@ -375,14 +375,14 @@ body.dark #contact i {
 }
 
 .profile-photo {
-    width: 200px;          
-    height: 200px;         
-    object-fit: contain;   
-    border-radius: 50%;    
+    width: 200px;          /* diameter of the circle */
+    height: 200px;         /* same as width to make it circular */
+    object-fit: contain;   /* ensures full image fits inside circle */
+    border-radius: 50%;    /* makes it circular */
     display: block;
-    margin: 0 auto 20px;   
-    border: 3px solid var(--btn-bg); 
-    background-color: #fff; 
+    margin: 0 auto 20px;   /* centers it and adds spacing below */
+    border: 3px solid var(--btn-bg); /* optional: adds a nice border */
+    background-color: #fff; /* optional: background behind the image */
 }
 
 /* =========================
@@ -410,41 +410,86 @@ body.dark #contact i {
     box-shadow: 0 12px 25px rgba(0,0,0,0.25);
 }
 
+.card-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.creative-card:hover .card-overlay {
+    opacity: 1;
+}
+
+.show-more {
+    background: var(--btn-bg);
+    color: var(--btn-color);
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
 /* =========================
-   Creative Projects Layout (Flex)
+   Creative Projects Layout
 ========================= */
+/* Ensure the right video side takes the full height of the left content */
 .project-layout {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* responsive stacking */
   gap: 30px;
-  padding: 15px 0;
-  align-items: flex-start;
+  padding: 25px;
+  text-decoration: none;
+  color: inherit;
 }
-
-/* Left info */
 .project-info {
-  flex: 1 1 50%;
-  min-width: 300px;
+  flex: 1 1 500px; /* left column grows, min width 500px */
 }
 
-/* Right video */
-.project-video-preview {
-  flex: 1 1 50%;
-  min-width: 300px;
-  height: 400px;
-  max-height: 400px;
+.project-info h3 {
+  margin-bottom: 10px;
+}
+
+.project-info p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+/* Project image */
+.project-image {
+  width: 100%;
   border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-  position: relative;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
 }
 
+.project-layout:hover .project-image {
+  transform: scale(1.02);
+}
+
+.project-video-preview {
+  flex: 1 1 400px; /* right column grows, min width 400px */
+  max-width: 600px;
+  height: auto;
+  display: flex;
+  align-items: stretch; /* makes video stretch to match left height */
+}
 .project-video-preview video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 12px;
 }
 
+  .project-video-preview video {
+    height: 250px; /* fixed height for mobile */
+  }
+}
+
+/* Overlay hidden initially */
 .video-overlay {
   position: absolute;
   inset: 0;
@@ -469,27 +514,115 @@ body.dark #contact i {
   opacity: 1;
 }
 
-/* Responsive */
+/* Mobile stacking */
 @media (max-width: 900px) {
   .project-layout {
     flex-direction: column;
   }
-  .project-video-preview {
-    height: 250px;
-  }
+
+/* =========================
+   EXPERIENCE LOGOS
+========================= */
+
+.experience-card {
+    position: relative;
 }
+
+/* Logo positioning */
+.experience-logo {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    max-width: 75px;
+    max-height: 45px;
+    object-fit: contain;
+    opacity: 0.75;
+    filter: grayscale(100%);
+    transition: transform 0.35s ease, opacity 0.35s ease, filter 0.35s ease;
+    pointer-events: none; /* avoids hover conflicts */
+}
+
+/* Hover effect */
+.experience-card:hover .experience-logo {
+    opacity: 1;
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+/* Dark mode fine-tuning */
+body.dark .experience-logo {
+    opacity: 0.85;
+}
+
+/* Mobile: keep layout clean */
+@media (max-width: 600px) {
+    .experience-logo {
+        max-width: 60px;
+        max-height: 38px;
+        top: 12px;
+        right: 12px;
+    }
+}
+
+/* =========================
+   EXPERIENCE LOGOS
+========================= */
+
+.experience-card {
+    position: relative;
+}
+
+/* Logo positioning */
+.experience-logo {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    max-width: 75px;
+    max-height: 45px;
+    object-fit: contain;
+    opacity: 0.75;
+    filter: grayscale(100%);
+    transition: transform 0.35s ease, opacity 0.35s ease, filter 0.35s ease;
+    pointer-events: none; /* avoids hover conflicts */
+}
+
+/* Hover effect */
+.experience-card:hover .experience-logo {
+    opacity: 1;
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+/* Dark mode fine-tuning */
+body.dark .experience-logo {
+    opacity: 0.85;
+}
+
+/* Mobile: keep layout clean */
+@media (max-width: 600px) {
+    .experience-logo {
+        max-width: 60px;
+        max-height: 38px;
+        top: 12px;
+        right: 12px;
+    }
+}
+
+/* =========================
+   TOOLS RIBBON
+========================= */
 
 /* =========================
    TOOLS RIBBON SCROLLING
 ========================= */
 .tools-ribbon {
-  height: 60px;
   overflow: hidden;
   padding: 10px 0;
   background: var(--card-bg);
   border-top: 1px solid var(--card-border);
   border-bottom: 1px solid var(--card-border);
   border-radius: 8px;
+  margin-top: 15px;
   position: relative;
 }
 
@@ -497,15 +630,17 @@ body.dark #contact i {
   display: flex;
   gap: 20px;
   align-items: center;
-  min-width: max-content;
+  min-width: max-content; /* prevent wrapping */
   animation: scrollRibbon 15s linear infinite;
 }
 
+/* Duplicate for smooth loop */
 .tools-track::after {
   content: "";
-  flex: 0 0 20px;
+  flex: 0 0 20px; /* spacing between loops */
 }
 
+/* Logos */
 .tools-track img {
   height: 40px;
   width: auto;
@@ -517,24 +652,25 @@ body.dark #contact i {
   opacity: 1;
 }
 
+/* SCROLL ANIMATION */
 @keyframes scrollRibbon {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
+/* Responsive for mobile */
 @media (max-width: 768px) {
-  .tools-track img { height: 30px; }
+  .tools-track img {
+    height: 30px;
+  }
 }
 
-.tools-ribbon-full {
-  width: 100vw;
-  height: 60px;
-  overflow: hidden;
-  padding: 10px 0;
-  background: var(--card-bg);
-  border-top: 1px solid var(--card-border);
-  border-bottom: 1px solid var(--card-border);
-  border-radius: 8px;
-  position: relative;
-  margin-top: 15px;
-}
+     .project-info,
+  .project-video-preview {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
