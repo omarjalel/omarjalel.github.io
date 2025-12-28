@@ -101,7 +101,7 @@ hamburger.addEventListener('click', () => {
 });
 
 // =====================
-// Certificate Flip Cards - IMPROVED
+// Certificate Flip Cards - IMPROVED (Click outside to flip back)
 // =====================
 document.addEventListener('DOMContentLoaded', function() {
   initCertificateCards();
@@ -109,38 +109,65 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function initCertificateCards() {
   const certificateCards = document.querySelectorAll('.certificate-card');
+  let activeCard = null; // Track which card is currently flipped
   
   certificateCards.forEach(card => {
     // Skip if already initialized
     if (card.dataset.initialized) return;
     
     const viewMoreBtn = card.querySelector('.view-more-btn');
-    const inner = card.querySelector('.certificate-inner');
+    const viewCertBtn = card.querySelector('.view-certificate-btn');
     
-    // Only need the front button to initialize
-    if (!viewMoreBtn || !inner) return;
+    if (!viewMoreBtn) return;
     
     // 1. Click "View Details" to FLIP CARD (FRONT -> BACK)
     viewMoreBtn.addEventListener('click', function(e) {
       e.stopPropagation();
       e.preventDefault();
+      
+      // Close any other open card first
+      if (activeCard && activeCard !== card) {
+        activeCard.classList.remove('flipped');
+      }
+      
+      // Open this card
       card.classList.add('flipped');
+      activeCard = card;
     });
     
-    // 2. Click ANYWHERE on the card to UNFLIP (BACK -> FRONT)
+    // 2. Click ANYWHERE inside the card to UNFLIP (except the "View Certificate" link)
     card.addEventListener('click', function(e) {
-      // Only flip back if we're on the back side (flipped state)
-      if (card.classList.contains('flipped')) {
-        // Don't flip back if clicking on the "View Certificate" link
-        if (e.target.closest('.view-certificate-btn')) {
-          return; // Let the link work normally
-        }
+      // Only flip back if we're on the back side AND not clicking the View Certificate link
+      if (card.classList.contains('flipped') && !e.target.closest('.view-certificate-btn')) {
         card.classList.remove('flipped');
+        activeCard = null;
       }
+    });
+    
+    // 3. Prevent clicks inside card from bubbling to document
+    card.addEventListener('click', function(e) {
+      e.stopPropagation();
     });
     
     // Mark as initialized
     card.dataset.initialized = 'true';
+  });
+  
+  // 4. CLICK ANYWHERE OUTSIDE THE CARD TO FLIP BACK
+  document.addEventListener('click', function(e) {
+    // If there's an active (flipped) card AND we're clicking outside it
+    if (activeCard && !activeCard.contains(e.target)) {
+      activeCard.classList.remove('flipped');
+      activeCard = null;
+    }
+  });
+  
+  // 5. Also flip back when pressing Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && activeCard) {
+      activeCard.classList.remove('flipped');
+      activeCard = null;
+    }
   });
 }
 
