@@ -793,7 +793,7 @@ footer p {
 
 #certifications {
   background: var(--card-bg);
-  border-radius: 20px;
+  border-<radius: 20px;
   margin: 40px auto;
 }
 
@@ -934,7 +934,7 @@ body.dark .certificate-logo {
 }
 
 /* =========================
-   BACK (DETAILS SIDE - NO SCROLL, COMPACT)
+   BACK (DETAILS SIDE - FIXED TO SHOW ALL CONTENT)
 ========================= */
 .certificate-back {
   transform: rotateY(180deg);
@@ -942,20 +942,20 @@ body.dark .certificate-logo {
   color: white;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Distribute space */
 }
 
 .certificate-back-content {
   display: flex;
   flex-direction: column;
   height: 100%;
-  overflow: hidden; /* Prevent overflow */
+  flex: 1;
+  min-height: 0; /* Important for flex children */
 }
 
 /* Header - Compact */
 .certificate-header {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   flex-shrink: 0;
 }
 
@@ -1014,12 +1014,13 @@ body.dark .certificate-logo {
   opacity: 0.9;
 }
 
-/* Skills - More Compact */
+/* Skills - Fixed to show all */
 .skills-list {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   flex: 1; /* Take available space */
-  min-height: 0; /* Allow shrinking */
-  overflow: hidden; /* Hide any potential overflow */
+  display: flex;
+  flex-direction: column;
+  min-height: 150px; /* Minimum height for skills */
 }
 
 .skills-list h4 {
@@ -1029,30 +1030,18 @@ body.dark .certificate-logo {
   align-items: center;
   gap: 8px;
   font-size: 1.1rem;
+  flex-shrink: 0;
 }
 
 .skills-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  max-height: 120px; /* Limit height */
-  overflow-y: auto; /* Only scroll skills if needed */
-  padding-right: 5px;
-}
-
-/* Custom scrollbar for skills */
-.skills-tags::-webkit-scrollbar {
-  width: 4px;
-}
-
-.skills-tags::-webkit-scrollbar-track {
-  background: rgba(255,255,255,0.1);
-  border-radius: 2px;
-}
-
-.skills-tags::-webkit-scrollbar-thumb {
-  background: #00c6ff;
-  border-radius: 2px;
+  flex: 1;
+  align-content: flex-start; /* Align items at the start */
+  overflow: visible !important; /* Force visibility */
+  max-height: none !important; /* Remove max height limit */
+  padding-right: 0;
 }
 
 .skills-tags span {
@@ -1062,6 +1051,7 @@ body.dark .certificate-logo {
   border-radius: 15px;
   font-size: 0.8rem;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 /* =========================
@@ -1098,7 +1088,6 @@ body.dark .certificate-logo {
 .view-certificate-btn i {
   margin-right: 8px;
 }
-
 /* =========================
    FOOTER (VERIFIED BADGE ONLY)
 ========================= */
@@ -1126,68 +1115,16 @@ body.dark .certificate-logo {
   color: #00c6ff;
   font-size: 0.9rem;
 }
-
 /* =========================
    RESPONSIVE ADJUSTMENTS
 ========================= */
 @media (max-width: 768px) {
-  .certifications-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .certificate-card {
-    max-width: 100%;
-    height: 500px; /* Slightly smaller on mobile */
-  }
-  
-  .certificate-front,
-  .certificate-back {
-    padding: 25px;
-  }
-  
-  .certificate-front h3 {
-    font-size: 1.3rem;
-  }
-  
-  .certificate-logo {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 20px;
-  }
-  
-  .certificate-logo img {
-    max-width: 70px;
-    max-height: 70px;
-  }
-  
-  .view-more-btn {
-    padding: 12px 28px;
-    font-size: 0.95rem;
-    min-width: 160px;
-  }
-  
-  .certificate-header h3 {
-    font-size: 1.2rem;
+  .skills-list {
+    min-height: 120px;
   }
   
   .skills-tags {
-    max-height: 100px;
-  }
-}
-
-@media (max-width: 480px) {
-  .certificate-card {
-    height: 480px;
-  }
-  
-  .certificate-front,
-  .certificate-back {
-    padding: 20px;
-  }
-  
-  .certificate-front h3 {
-    font-size: 1.2rem;
-    margin-bottom: 25px;
+    gap: 5px;
   }
   
   .skills-tags span {
