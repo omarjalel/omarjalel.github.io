@@ -826,7 +826,7 @@ footer p {
   perspective: 1500px;
   width: 100%;
   max-width: 420px;
-  height: 520px; /* Increased from min-height */
+  height: 580px; /* Increased from min-height */
   cursor: pointer;
 }
 
