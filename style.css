@@ -908,6 +908,12 @@ body.dark .certificate-logo {
   max-height: 80px;
 }
 
+/* Optional: Adjust Microsoft logo size if needed */
+.certificate-logo img[src*="microsoft.png"] {
+  max-width: 70px; /* Slightly smaller if Microsoft logo is complex */
+  max-height: 70px;
+}
+
 .certificate-front h3 {
   font-size: 1.5rem;
   color: var(--section-h2);
