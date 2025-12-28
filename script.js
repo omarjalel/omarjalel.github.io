@@ -193,3 +193,86 @@ window.addEventListener('load', function() {
     fillBars();
   }
 });
+
+// =====================
+// Certificate Carousel Navigation
+// =====================
+document.addEventListener('DOMContentLoaded', function() {
+  initCertificateCarousel();
+});
+
+function initCertificateCarousel() {
+  const track = document.querySelector('.certificates-track');
+  const leftArrow = document.querySelector('.carousel-arrow.left');
+  const rightArrow = document.querySelector('.carousel-arrow.right');
+  const certificateCards = document.querySelectorAll('.certificate-card');
+  
+  if (!track || !leftArrow || !rightArrow) return;
+  
+  const cardWidth = certificateCards[0]?.offsetWidth || 380;
+  const gap = 30;
+  const scrollAmount = cardWidth + gap;
+  
+  // Update arrow states
+  function updateArrows() {
+    const scrollLeft = track.scrollLeft;
+    const maxScroll = track.scrollWidth - track.clientWidth;
+    
+    leftArrow.disabled = scrollLeft <= 0;
+    rightArrow.disabled = scrollLeft >= maxScroll - 10; // Small buffer
+    
+    if (leftArrow.disabled) {
+      leftArrow.style.opacity = '0.5';
+      leftArrow.style.cursor = 'not-allowed';
+    } else {
+      leftArrow.style.opacity = '1';
+      leftArrow.style.cursor = 'pointer';
+    }
+    
+    if (rightArrow.disabled) {
+      rightArrow.style.opacity = '0.5';
+      rightArrow.style.cursor = 'not-allowed';
+    } else {
+      rightArrow.style.opacity = '1';
+      rightArrow.style.cursor = 'pointer';
+    }
+  }
+  
+  // Scroll left
+  leftArrow.addEventListener('click', function() {
+    if (this.disabled) return;
+    track.scrollBy({
+      left: -scrollAmount,
+      behavior: 'smooth'
+    });
+    setTimeout(updateArrows, 300);
+  });
+  
+  // Scroll right
+  rightArrow.addEventListener('click', function() {
+    if (this.disabled) return;
+    track.scrollBy({
+      left: scrollAmount,
+      behavior: 'smooth'
+    });
+    setTimeout(updateArrows, 300);
+  });
+  
+  // Keyboard navigation
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowLeft') {
+      leftArrow.click();
+    } else if (e.key === 'ArrowRight') {
+      rightArrow.click();
+    }
+  });
+  
+  // Update on scroll
+  track.addEventListener('scroll', updateArrows);
+  
+  // Update on resize
+  window.addEventListener('resize', updateArrows);
+  
+  // Initial update
+  updateArrows();
+}
