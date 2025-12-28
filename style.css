@@ -786,6 +786,7 @@ footer p {
     #contact h2::after { left: 50%; transform: translateX(-50%); }
     #contact p { justify-content: center; }
 }
+
 /* =========================
    CERTIFICATIONS SECTION – IMPROVED FLIP CARD
 ========================= */
