@@ -815,23 +815,14 @@ footer p {
 /* =========================
    CAROUSEL CONTAINER
 ========================= */
-.carousel-arrow {
-  position: absolute;
-  top: calc(50% - 210px); /* Half of card height (420px/2) */
-  width: 50px;
-  height: 50px;
-  background: var(--btn-bg);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  font-size: 1.5rem;
-  cursor: pointer;
+.certifications-carousel {
+  position: relative;
+  min-height: 460px; /* Reduced from 500px to match card height better */
+  width: 100%;
+  padding: 0 60px; /* Space for arrows */
+  margin: 0 auto;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-  transition: all 0.3s ease;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  align-items: center; /* This helps center content vertically */
 }
 
 .certificates-track {
@@ -1148,12 +1139,11 @@ body.dark .certificate-logo {
 }
 
 /* =========================
-   CAROUSEL NAVIGATION ARROWS
+   CAROUSEL NAVIGATION ARROWS - FIXED CENTERING
 ========================= */
 .carousel-arrow {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: calc(50% - 210px); /* Half of card height (420px/2) */
   width: 50px;
   height: 50px;
   background: var(--btn-bg);
@@ -1202,11 +1192,17 @@ body.dark .certificate-logo {
   .certificate-front {
     height: 400px;
   }
+  
+  /* Update arrow positioning for smaller card height */
+  .carousel-arrow {
+    top: calc(50% - 200px); /* Half of 400px */
+  }
 }
 
 @media (max-width: 768px) {
   .certifications-carousel {
     padding: 0 50px;
+    min-height: 430px; /* Adjusted for smaller cards */
   }
   
   .certificate-card {
@@ -1217,6 +1213,7 @@ body.dark .certificate-logo {
     width: 40px;
     height: 40px;
     font-size: 1.2rem;
+    top: calc(50% - 190px); /* Half of 380px */
   }
   
   .carousel-arrow.left {
@@ -1271,6 +1268,7 @@ body.dark .certificate-logo {
 @media (max-width: 480px) {
   .certifications-carousel {
     padding: 0 40px;
+    min-height: 410px; /* Adjusted for smallest cards */
   }
   
   .certificate-card {
@@ -1281,6 +1279,7 @@ body.dark .certificate-logo {
     width: 35px;
     height: 35px;
     font-size: 1rem;
+    top: calc(50% - 180px); /* Half of 360px */
   }
   
   .certificate-front {
